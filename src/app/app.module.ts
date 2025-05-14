@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 import { CandidatosModule } from './candidatos/candidatos.module';
 
 @NgModule({
@@ -11,10 +12,10 @@ import { CandidatosModule } from './candidatos/candidatos.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule, 
     AppRoutingModule,
     CandidatosModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

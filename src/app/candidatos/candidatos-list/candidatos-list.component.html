@@ -24,3 +24,23 @@
 
     <app-candidatos-detail *ngIf="candidatoSeleccionado" [candidato]="candidatoSeleccionado"></app-candidatos-detail>
 </div>
+
+
+<div class="container mt-4">
+    <div class="alert alert-success text-center">
+      <strong>El nuevo Papa es:</strong> {{ papa?.nombre }}
+    </div>
+  
+    <div class="row">
+      <div class="col-md-4 mb-3" *ngFor="let c of candidatos">
+        <div class="card h-100" (click)="verDetalle(c.id)" style="cursor: pointer;">
+          <img [src]="c.foto" class="card-img-top" alt="{{c.nombre}}">
+          <div class="card-body">
+            <h5 class="card-title">{{ c.nombre }}</h5>
+            <p class="card-text">{{ c.vertiente_religiosa }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

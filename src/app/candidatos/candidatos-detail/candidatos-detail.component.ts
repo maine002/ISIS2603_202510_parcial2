@@ -1,14 +1,29 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CandidatosService } from '../candidatos.service';
 
 @Component({
   selector: 'app-candidatos-detail',
-  standalone: false,
-  templateUrl: './candidatos-detail.component.html',
-  styleUrl: './candidatos-detail.component.css'
+  templateUrl: './candidatos-detail.component.html'
 })
 export class CandidatosDetailComponent implements OnInit {
-  @Input() candidato: any;
 
-  constructor() {}
-  ngOnInit() {}
+  candidato: any;
+
+  constructor(
+    private route: ActivatedRoute,
+    private candidatosService: CandidatosService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.candidatosService.getCandidatoDetalle(id).subscribe(data => {
+      this.candidato = data;
+    });
+  }
+
+  volver(): void {
+    this.router.navigate(['/candidatos']);
+  }
 }

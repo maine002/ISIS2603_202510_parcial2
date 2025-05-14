@@ -3,19 +3,12 @@ import { CommonModule } from '@angular/common';
 import { CandidatosListComponent } from './candidatos-list/candidatos-list.component';
 import { CandidatosDetailComponent } from './candidatos-detail/candidatos-detail.component';
 
-
-
 @NgModule({
   declarations: [
     CandidatosListComponent,
-    CandidatosDetailComponent
+    CandidatosDetailComponent 
   ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    CandidatosListComponent
-  ]
-
+  imports: [CommonModule],
+  exports: [CandidatosListComponent]
 })
-export class CandidatosModule { }
+export class CandidatosModule {}
